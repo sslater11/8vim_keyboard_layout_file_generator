@@ -316,16 +316,63 @@ for i in range( len( new_layout_lower ) ):
 
 
 XML_START = """<keyboardActionMap>
+    <!-- Keywords for defining the movements -->
     <!--{NO_TOUCH, INSIDE_CIRCLE, TOP, LEFT, BOTTOM, RIGHT}-->
 
-    <!-- Lowercase -->"""
+    <!-- ~~~~~~~~~ -->
+    <!-- Lowercase -->
+    <!-- ~~~~~~~~~ -->"""
 
 CAPITAL = """
 
-    <!--Capital Characters by going all the way around the board -->"""
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Capital Characters by going all the way around the board -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->"""
 final_output_upper
 
 XML_END = """
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Esperanto Characters -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~ -->
+    <keyboardAction>
+        <keyboardActionType>INPUT_TEXT</keyboardActionType>
+        <movementSequence>INSIDE_CIRCLE;LEFT;TOP;RIGHT;TOP;RIGHT;INSIDE_CIRCLE;</movementSequence>
+        <inputString>ĉ</inputString>
+        <inputCapsLockString>Ĉ</inputCapsLockString>
+    </keyboardAction>
+    <keyboardAction>
+        <keyboardActionType>INPUT_TEXT</keyboardActionType>
+        <movementSequence>INSIDE_CIRCLE;TOP;LEFT;BOTTOM;RIGHT;BOTTOM;RIGHT;INSIDE_CIRCLE;</movementSequence>
+        <inputString>ĝ</inputString>
+        <inputCapsLockString>Ĝ</inputCapsLockString>
+    </keyboardAction>
+    <keyboardAction>
+        <keyboardActionType>INPUT_TEXT</keyboardActionType>
+        <movementSequence>INSIDE_CIRCLE;LEFT;BOTTOM;RIGHT;BOTTOM;RIGHT;INSIDE_CIRCLE;</movementSequence>
+        <inputString>ĥ</inputString>
+        <inputCapsLockString>Ĥ</inputCapsLockString>
+    </keyboardAction>
+    <keyboardAction>
+        <keyboardActionType>INPUT_TEXT</keyboardActionType>
+        <movementSequence>INSIDE_CIRCLE;LEFT;BOTTOM;RIGHT;TOP;RIGHT;TOP;INSIDE_CIRCLE;</movementSequence>
+        <inputString>ĵ</inputString>
+        <inputCapsLockString>Ĵ</inputCapsLockString>
+    </keyboardAction>
+    <keyboardAction>
+        <keyboardActionType>INPUT_TEXT</keyboardActionType>
+        <movementSequence>INSIDE_CIRCLE;TOP;LEFT;TOP;LEFT;INSIDE_CIRCLE;</movementSequence>
+        <inputString>ŝ</inputString>
+        <inputCapsLockString>Ŝ</inputCapsLockString>
+    </keyboardAction>
+    <keyboardAction>
+        <keyboardActionType>INPUT_TEXT</keyboardActionType>
+        <movementSequence>INSIDE_CIRCLE;BOTTOM;RIGHT;TOP;RIGHT;TOP;INSIDE_CIRCLE;</movementSequence>
+        <inputString>ŭ</inputString>
+        <inputCapsLockString>Ŭ</inputCapsLockString>
+    </keyboardAction>
+
+
     <!--Paste Sequence-->
     <keyboardAction>
         <keyboardActionType>INPUT_SPECIAL</keyboardActionType>
@@ -444,45 +491,6 @@ XML_END = """
         <keyboardActionType>INPUT_KEY</keyboardActionType>
         <movementSequence>NO_TOUCH;INSIDE_CIRCLE;RIGHT;LONG_PRESS;</movementSequence>
         <inputKey>KEYCODE_DPAD_RIGHT</inputKey>
-    </keyboardAction>
-
-
-    <!--Esperanto Characters -->
-    <keyboardAction>
-        <keyboardActionType>INPUT_TEXT</keyboardActionType>
-        <movementSequence>INSIDE_CIRCLE;LEFT;TOP;RIGHT;TOP;RIGHT;INSIDE_CIRCLE;</movementSequence>
-        <inputString>ĉ</inputString>
-        <inputCapsLockString>Ĉ</inputCapsLockString>
-    </keyboardAction>
-    <keyboardAction>
-        <keyboardActionType>INPUT_TEXT</keyboardActionType>
-        <movementSequence>INSIDE_CIRCLE;TOP;LEFT;BOTTOM;RIGHT;BOTTOM;RIGHT;INSIDE_CIRCLE;</movementSequence>
-        <inputString>ĝ</inputString>
-        <inputCapsLockString>Ĝ</inputCapsLockString>
-    </keyboardAction>
-    <keyboardAction>
-        <keyboardActionType>INPUT_TEXT</keyboardActionType>
-        <movementSequence>INSIDE_CIRCLE;LEFT;BOTTOM;RIGHT;BOTTOM;RIGHT;INSIDE_CIRCLE;</movementSequence>
-        <inputString>ĥ</inputString>
-        <inputCapsLockString>Ĥ</inputCapsLockString>
-    </keyboardAction>
-    <keyboardAction>
-        <keyboardActionType>INPUT_TEXT</keyboardActionType>
-        <movementSequence>INSIDE_CIRCLE;LEFT;BOTTOM;RIGHT;TOP;RIGHT;TOP;INSIDE_CIRCLE;</movementSequence>
-        <inputString>ĵ</inputString>
-        <inputCapsLockString>Ĵ</inputCapsLockString>
-    </keyboardAction>
-    <keyboardAction>
-        <keyboardActionType>INPUT_TEXT</keyboardActionType>
-        <movementSequence>INSIDE_CIRCLE;TOP;LEFT;TOP;LEFT;INSIDE_CIRCLE;</movementSequence>
-        <inputString>ŝ</inputString>
-        <inputCapsLockString>Ŝ</inputCapsLockString>
-    </keyboardAction>
-    <keyboardAction>
-        <keyboardActionType>INPUT_TEXT</keyboardActionType>
-        <movementSequence>INSIDE_CIRCLE;BOTTOM;RIGHT;TOP;RIGHT;TOP;INSIDE_CIRCLE;</movementSequence>
-        <inputString>ŭ</inputString>
-        <inputCapsLockString>Ŭ</inputCapsLockString>
     </keyboardAction>
 
 
