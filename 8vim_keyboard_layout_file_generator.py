@@ -48,7 +48,7 @@ def print_new_layout( letters, is_lowercase=True, is_compact_layout=False ):
  {letters[26]}\{letters[30]}         {letters[2]}/{letters[6]}
   {letters[25]}\{letters[29]}       {letters[1]}/{letters[5]}
    {letters[24]}\{letters[28]}_____{letters[0]}/{letters[4]}
-     |lower|
+     |{str_case}|
      |case |
    {letters[20]}/{letters[16]}⎺⎺⎺⎺⎺{letters[12]}\{letters[8]}
   {letters[21]}/{letters[17]}       {letters[13]}\{letters[9]}
@@ -81,6 +81,8 @@ def print_new_layout( letters, is_lowercase=True, is_compact_layout=False ):
         print( layout_compact )
     else:
         print( layout )
+
+    return
 
 # The movements assigned to the original layout.
 # We use this to make the new layout 
