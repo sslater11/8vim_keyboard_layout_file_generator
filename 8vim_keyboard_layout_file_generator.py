@@ -34,6 +34,54 @@ your_email_address = "youremailaddress@gmail.com"
 #    Program start
 # -------------------
 
+# Passed a string of just letters and will map that to the layout.
+# E.g. the original 8pen layout passed like this.
+# "ybpqarx?nmf!ouvwelk@ihj,tcz.sdg'"
+def print_new_layout( letters, is_lowercase=True, is_compact_layout=False ):
+    if is_lowercase == True:
+        str_case = "lower"
+    else:
+        str_case = "upper"
+
+    layout_compact =  f"""
+{letters[27]}\{letters[31]}           {letters[3]}/{letters[7]}
+ {letters[26]}\{letters[30]}         {letters[2]}/{letters[6]}
+  {letters[25]}\{letters[29]}       {letters[1]}/{letters[5]}
+   {letters[24]}\{letters[28]}_____{letters[0]}/{letters[4]}
+     |lower|
+     |case |
+   {letters[20]}/{letters[16]}⎺⎺⎺⎺⎺{letters[12]}\{letters[8]}
+  {letters[21]}/{letters[17]}       {letters[13]}\{letters[9]}
+ {letters[22]}/{letters[18]}         {letters[14]}\{letters[10]}
+{letters[23]}/{letters[19]}           {letters[15]}\{letters[11]}
+"""
+
+    layout =  f"""
+{letters[27]} \ {letters[31]}                 {letters[3]} / {letters[7]}
+   \                   / 
+  {letters[26]} \ {letters[30]}             {letters[2]} / {letters[6]}
+     \               / 
+    {letters[25]} \ {letters[29]}         {letters[1]} / {letters[5]}
+       \           / 
+      {letters[24]} \ {letters[28]}     {letters[0]} / {letters[4]}
+         \ _____ / 
+          |{str_case}|
+          |case |
+         / ⎺⎺⎺⎺⎺ \ 
+      {letters[20]} / {letters[16]}     {letters[12]} \ {letters[8]}
+       /           \ 
+    {letters[21]} / {letters[17]}         {letters[13]} \ {letters[9]}
+     /               \ 
+  {letters[22]} / {letters[18]}             {letters[14]} \ {letters[10]}
+   /                   \ 
+{letters[23]} / {letters[19]}                 {letters[15]} \ {letters[11]}
+"""
+
+    if is_compact_layout:
+        print( layout_compact )
+    else:
+        print( layout )
+
 # The movements assigned to the original layout.
 # We use this to make the new layout 
 movement_lower = [
@@ -224,18 +272,6 @@ for i in range(0, 4):
     new_layout_string_upper += new_layout_upper[i]
     new_layout_string_upper += new_layout_upper[i+5]
 
-print("Edit this file")
-print("8vim/src/main/java/inc/flide/vim8/views/mainKeyboard/XpadView.java)")
-print("Change these variables to this:")
-print( "String characterSetSmall = \"" + new_layout_string_lower.replace("\"", "\\\"") + "\";" )
-print( "String characterSetCaps  = \"" + new_layout_string_upper.replace("\"", "\\\"") + "\";" )
-print("")
-print("The new keyboard layout has been saved to:")
-print("keyboard_actions.xml")
-print("Move it to here:")
-print("8vim/src/main/res/raw/keyboard_actions.xml")
-print("")
-print("Rebuild 8vim and send the apk to your phone.")
 
 
 ###################################################
@@ -507,3 +543,22 @@ output = XML_START + final_output_lower + CAPITAL + final_output_upper + XML_END
 f = open("keyboard_actions.xml", "w")
 f.write( output )
 f.close()
+
+print_new_layout( new_layout_lower, is_lowercase=True  )
+print_new_layout( new_layout_upper, is_lowercase=False )
+
+print()
+print("--- Usage Notes ---")
+print("Edit this file")
+print("8vim/src/main/java/inc/flide/vim8/views/mainKeyboard/XpadView.java)")
+print("Change these variables to this:")
+print( "String characterSetSmall = \"" + new_layout_string_lower.replace("\"", "\\\"") + "\";" )
+print( "String characterSetCaps  = \"" + new_layout_string_upper.replace("\"", "\\\"") + "\";" )
+print("")
+print("The new keyboard layout has been saved to:")
+print("keyboard_actions.xml")
+print("Move it to here:")
+print("8vim/src/main/res/raw/keyboard_actions.xml")
+print("")
+print("Rebuild 8vim and send the apk to your phone.")
+
