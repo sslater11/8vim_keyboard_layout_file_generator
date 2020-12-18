@@ -84,6 +84,10 @@ def print_new_layout( letters, is_lowercase=True, is_compact_layout=False ):
 
     return
 
+################
+# Main program #
+################
+
 # The movements assigned to the original layout.
 # We use this to make the new layout 
 movement_lower = [
